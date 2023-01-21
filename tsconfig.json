@@ -1,3 +1,31 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "declaration": true,
+    "strict": true,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+    },
+    "outDir": "dist",
+    "lib": ["dom", "esnext"],
+    "types": ["react-native", "jest"],
+    "moduleResolution": "node",
+    "jsx": "react-native",
+    "experimentalDecorators": true,
+  },
+  "exclude": [
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    "dist",
+    "node_modules",
+    "**/__tests__/*"
+  ],
 }

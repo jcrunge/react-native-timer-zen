@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import React, { useCallback, useEffect } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 interface Props {
   elapsedTime: number;
   running: boolean;
@@ -7,13 +7,7 @@ interface Props {
   setTimer: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Chronometer: React.FC<Props> = ({
-  elapsedTime,
-  running,
-  setRunning,
-  setTimer,
-  //incrementSecond,
-}) => {
+const Chronometer: React.FC<Props> = ({ elapsedTime, running, setRunning, setTimer }) => {
   useEffect(() => {
     let interval: number | undefined;
     if (running) {

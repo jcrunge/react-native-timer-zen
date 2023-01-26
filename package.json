@@ -4,10 +4,16 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "formatDist": "prettier --write \"dist/**/*.ts\" \"dist/**/*.js\"",
     "ios": "react-native run-ios",
+    "preversion": "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags",
     "lint": "eslint .",
     "build": "tsc",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
     "start": "react-native start",
     "test": "jest"
   },
@@ -36,5 +42,12 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "files": ["dist/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcrunge/react-native-timer-zen"
+  },
+  "keywords": ["chronometer", "stopwatch", "timer"],
+  "author": "Cairo G. Resendiz"
 }

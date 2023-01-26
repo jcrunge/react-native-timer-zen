@@ -1,11 +1,11 @@
-import React, { useCallback } from "react";
+import React from 'react';
 import Timekeeper from './src/Chronometer';
 
-import {SafeAreaView, useColorScheme} from 'react-native';
+import { SafeAreaView, useColorScheme } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-function App(): JSX.Element {
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -17,12 +17,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <Timekeeper
-        elapsedTime={elapsedTime}
-        running={running}
-        setRunning={setRunning}
-        setTimer={setElapsedTime}
-      />
+      <Timekeeper elapsedTime={elapsedTime} running={running} setRunning={setRunning} setTimer={setElapsedTime} />
     </SafeAreaView>
   );
 }

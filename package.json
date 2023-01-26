@@ -4,8 +4,16 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "formatDist": "prettier --write \"dist/**/*.ts\" \"dist/**/*.js\"",
     "ios": "react-native run-ios",
+    "preversion": "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags",
     "lint": "eslint .",
+    "build": "tsc",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
     "start": "react-native start",
     "test": "jest"
   },
@@ -23,14 +31,23 @@
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
+    "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.19.0",
     "jest": "^29.2.1",
     "metro-react-native-babel-preset": "0.73.5",
-    "prettier": "^2.4.1",
+    "prettier": "^2.8.3",
     "react-test-renderer": "18.2.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "4.8.4"
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "files": ["dist/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcrunge/react-native-timer-zen"
+  },
+  "keywords": ["chronometer", "stopwatch", "timer"],
+  "author": "Cairo G. Resendiz"
 }

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import { PlayButton } from './Button';
 interface Props {
   elapsedTime: number;
   running: boolean;
@@ -55,7 +56,8 @@ const Chronometer: React.FC<Props> = ({ elapsedTime, running, setRunning, setTim
       {running ? (
         <Button title="Pause" onPress={handlePausePress} />
       ) : (
-        <Button title="Start" onPress={handleStartPress} />
+        // create a button wit svg icon
+        <PlayButton onPress={handleStartPress} size={52} />
       )}
       <Button title="Stop" onPress={handleStopPress} />
       <Button title="Reset" onPress={handleResetPress} />
